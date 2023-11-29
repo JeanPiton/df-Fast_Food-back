@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Menu {
+  id            Int         @id @default(autoincrement())
+  name          String      
+  desc          String
+  sdesc         String
+  price         Decimal     @db.Decimal(10, 2)
+  image         String      
+  extra         Extra[] 
+  type          Type        @relation(fields: [typeId], references: [id])
+  typeId        Int
+  selled        Int
+}
+
+model Order {
+  id            Int         @id @default(autoincrement())
+  name          String      
+  orders        Json[]
+  price         Decimal     @db.Decimal(10, 2)
+  done          Boolean     @default(false)
+  updatedAt     DateTime?   @default(now()) @db.Timestamp(6)
+}
+
+model Type {
+  id            Int         @id @default(autoincrement())
+  name          String      
+  image         String      
+  menu          Menu[]
+}
+
+model Extra {
+  id            Int         @id @default(autoincrement())
+  name          String
+  image         String
+  price         Decimal     @db.Decimal(10, 2)
+  desc          String
+  menu          Menu[]
+}
