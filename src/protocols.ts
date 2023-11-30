@@ -1,5 +1,4 @@
 import { Menu } from '@prisma/client';
-import { Decimal } from '@prisma/client/runtime/library';
 
 export type ApplicationError = {
   name: string;
@@ -19,7 +18,7 @@ export type FullMenu = Menu & {
     id: number;
     name: string;
     image: string;
-    price: Decimal;
+    price: number;
     desc: string;
   }[];
   type: {
