@@ -1,8 +1,7 @@
 import { faker } from '@faker-js/faker';
-import { Prisma } from '@prisma/client';
 import { expectTypeOf } from 'expect-type';
-import { menuService } from '@/services';
 import { FullMenu } from '@/protocols';
+import { menuService } from '@/services';
 
 describe('getMenu', () => {
   it('Should return empty array if there is no items', async () => {
@@ -24,9 +23,7 @@ describe('getMenu', () => {
             name: faker.animal.type(),
             desc: faker.lorem.words(5),
             sdesc: faker.lorem.words(2),
-            price: new Prisma.Decimal(
-              faker.number.float({ max: 100, precision: 0.01 }),
-            ),
+            price: faker.number.float({ max: 100, precision: 0.01 }),
             image: faker.image.url(),
             typeId: 0,
             selled: faker.number.int(100),
