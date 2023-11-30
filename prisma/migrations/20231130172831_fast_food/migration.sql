@@ -4,7 +4,7 @@ CREATE TABLE "Menu" (
     "name" TEXT NOT NULL,
     "desc" TEXT NOT NULL,
     "sdesc" TEXT NOT NULL,
-    "price" DECIMAL(10,2) NOT NULL,
+    "price" DOUBLE PRECISION NOT NULL,
     "image" TEXT NOT NULL,
     "typeId" INTEGER NOT NULL,
     "selled" INTEGER NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE "Order" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "orders" JSONB[],
-    "price" DECIMAL(10,2) NOT NULL,
+    "price" DOUBLE PRECISION NOT NULL,
     "done" BOOLEAN NOT NULL DEFAULT false,
     "updatedAt" TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP,
 
@@ -38,7 +38,7 @@ CREATE TABLE "Extra" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "image" TEXT NOT NULL,
-    "price" DECIMAL(10,2) NOT NULL,
+    "price" DOUBLE PRECISION NOT NULL,
     "desc" TEXT NOT NULL,
 
     CONSTRAINT "Extra_pkey" PRIMARY KEY ("id")
