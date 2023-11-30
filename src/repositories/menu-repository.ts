@@ -1,7 +1,9 @@
 import { prisma } from '@/config';
 
 async function getMenu() {
-  const items = await prisma.menu.findMany();
+  const items = await prisma.menu.findMany({
+    include: { extra: true, type: true },
+  });
   return items;
 }
 
