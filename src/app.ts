@@ -1,13 +1,17 @@
 import cors from 'cors';
 import express, { Express } from 'express';
+import { healthRouter, typeRouter } from '@/routers';
 import 'express-async-errors';
 import { connectDB, disconnectDB, loadEnv } from './config';
-import { healthRouter } from './routers/health-router';
 
 loadEnv();
 
 const app = express();
-app.use(cors()).use(express.json()).use('/health', healthRouter);
+app
+  .use(cors())
+  .use(express.json())
+  .use('/health', healthRouter)
+  .use('/type', typeRouter);
 
 export function init(): Promise<Express> {
   connectDB();
