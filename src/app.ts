@@ -1,6 +1,6 @@
+import { healthRouter, menuRouter, orderRouter, typeRouter } from '@/routers';
 import cors from 'cors';
 import express, { Express } from 'express';
-import { healthRouter, menuRouter, typeRouter } from '@/routers';
 import 'express-async-errors';
 import { connectDB, disconnectDB, loadEnv } from './config';
 
@@ -12,7 +12,8 @@ app
   .use(express.json())
   .use('/health', healthRouter)
   .use('/type', typeRouter)
-  .use('/menu', menuRouter);
+  .use('/menu', menuRouter)
+  .use('/order', orderRouter);
 
 export function init(): Promise<Express> {
   connectDB();
