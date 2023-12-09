@@ -7,20 +7,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Menu {
+model menu {
   id            Int         @id @default(autoincrement())
   name          String      
   desc          String
   sdesc         String
   price         Float 
   image         String      
-  extra         Extra[] 
-  type          Type        @relation(fields: [typeId], references: [id])
+  extra         extra[] 
+  type          type        @relation(fields: [typeId], references: [id])
   typeId        Int
   selled        Int
 }
 
-model Order {
+model order {
   id            Int         @id @default(autoincrement())
   name          String      
   orders        Json[]
@@ -29,18 +29,18 @@ model Order {
   updatedAt     DateTime?   @default(now()) @db.Timestamp(6)
 }
 
-model Type {
+model type {
   id            Int         @id @default(autoincrement())
   name          String      
   image         String      
-  menu          Menu[]
+  menu          menu[]
 }
 
-model Extra {
+model extra {
   id            Int         @id @default(autoincrement())
   name          String
   image         String
   price         Float
   desc          String
-  menu          Menu[]
+  menu          menu[]
 }
