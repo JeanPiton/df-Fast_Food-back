@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "Menu" (
+CREATE TABLE "menu" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "desc" TEXT NOT NULL,
@@ -9,11 +9,11 @@ CREATE TABLE "Menu" (
     "typeId" INTEGER NOT NULL,
     "selled" INTEGER NOT NULL,
 
-    CONSTRAINT "Menu_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "menu_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "Order" (
+CREATE TABLE "order" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "orders" JSONB[],
@@ -21,46 +21,46 @@ CREATE TABLE "Order" (
     "done" BOOLEAN NOT NULL DEFAULT false,
     "updatedAt" TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "Order_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "order_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "Type" (
+CREATE TABLE "type" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "image" TEXT NOT NULL,
 
-    CONSTRAINT "Type_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "type_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "Extra" (
+CREATE TABLE "extra" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "image" TEXT NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
     "desc" TEXT NOT NULL,
 
-    CONSTRAINT "Extra_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "extra_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "_ExtraToMenu" (
+CREATE TABLE "_extraTomenu" (
     "A" INTEGER NOT NULL,
     "B" INTEGER NOT NULL
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "_ExtraToMenu_AB_unique" ON "_ExtraToMenu"("A", "B");
+CREATE UNIQUE INDEX "_extraTomenu_AB_unique" ON "_extraTomenu"("A", "B");
 
 -- CreateIndex
-CREATE INDEX "_ExtraToMenu_B_index" ON "_ExtraToMenu"("B");
+CREATE INDEX "_extraTomenu_B_index" ON "_extraTomenu"("B");
 
 -- AddForeignKey
-ALTER TABLE "Menu" ADD CONSTRAINT "Menu_typeId_fkey" FOREIGN KEY ("typeId") REFERENCES "Type"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "menu" ADD CONSTRAINT "menu_typeId_fkey" FOREIGN KEY ("typeId") REFERENCES "type"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "_ExtraToMenu" ADD CONSTRAINT "_ExtraToMenu_A_fkey" FOREIGN KEY ("A") REFERENCES "Extra"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "_extraTomenu" ADD CONSTRAINT "_extraTomenu_A_fkey" FOREIGN KEY ("A") REFERENCES "extra"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "_ExtraToMenu" ADD CONSTRAINT "_ExtraToMenu_B_fkey" FOREIGN KEY ("B") REFERENCES "Menu"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "_extraTomenu" ADD CONSTRAINT "_extraTomenu_B_fkey" FOREIGN KEY ("B") REFERENCES "menu"("id") ON DELETE CASCADE ON UPDATE CASCADE;
