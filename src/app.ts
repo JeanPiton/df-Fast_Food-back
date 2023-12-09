@@ -1,13 +1,22 @@
+import 'express-async-errors';
+
 import cors from 'cors';
 import express, { Express } from 'express';
-import 'express-async-errors';
+import { healthRouter, menuRouter, orderRouter, typeRouter } from '@/routers';
 import { connectDB, disconnectDB, loadEnv } from './config';
-import { healthRouter } from './routers/health-router';
+import { handleApplicationErrors } from './middlewares';
 
 loadEnv();
 
 const app = express();
-app.use(cors()).use(express.json()).use('/health', healthRouter);
+app
+  .use(cors())
+  .use(express.json())
+  .use('/health', healthRouter)
+  .use('/type', typeRouter)
+  .use('/menu', menuRouter)
+  .use('/order', orderRouter)
+  .use(handleApplicationErrors);
 
 export function init(): Promise<Express> {
   connectDB();

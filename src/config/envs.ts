@@ -5,7 +5,7 @@ export function loadEnv() {
   let path = '';
   switch (process.env.NODE_ENV) {
     case 'test':
-      path = 'env.test';
+      path = '.env.test';
       break;
     case 'development':
       path = '.env.development';
