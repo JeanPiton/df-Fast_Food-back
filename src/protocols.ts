@@ -1,4 +1,4 @@
-import { Menu } from '@prisma/client';
+import { menu } from '@prisma/client';
 
 export type ApplicationError = {
   name: string;
@@ -13,7 +13,7 @@ export type RequestError = {
   message: string;
 };
 
-export type FullMenu = Menu & {
+export type FullMenu = menu & {
   extra: {
     id: number;
     name: string;
