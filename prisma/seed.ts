@@ -32,10 +32,10 @@ async function main() {
             extra.push(element)
         }
         const menus:any = [
-            {name:'Combo 1',image:'https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png',desc:'1x hambúrguer 100g, queijo cheddar, tomate, alface',sdesc:'1x hambúrguer 100g',price:30.50,selled:5,extra:[extra[0],extra[1],extra[2]],typeId:type[0].id},
-            {name:'Coca cola',image:'https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png',desc:'Coca cola lata 350ml',sdesc:'lata 350ml',price:5.50,selled:10,extra:[extra[3]],typeId:type[1].id},
-            {name:'Porção de fritas',image:'https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png',desc:'porção de fritas 500g',sdesc:'fritas 500g',price:25.50,selled:3,extra:[],typeId:type[2].id},
-            {name:'Sorvete',image:'https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png',desc:'sorvete de massa 5 bolas',sdesc:'5 bolas',price:25.00,selled:2,extra:[],typeId:type[3].id}
+            {name:'Combo 1',image:'https://img.freepik.com/fotos-gratis/hamburguer-isolado-no-fundo-branco-fastfood-de-hamburguer-fresco-com-carne-e-queijo_90220-1329.jpg?size=338&ext=jpg&ga=GA1.1.1826414947.1699142400&semt=ais',desc:'1x hambúrguer 100g, queijo cheddar, tomate, alface',sdesc:'1x hambúrguer 100g',price:30.50,selled:5,extra:[extra[0],extra[1],extra[2]],typeId:type[0].id},
+            {name:'Coca cola',image:'https://i.em.com.br/Eg6c1OehLhjzeJV3rqRFcM-WfPw=/750x0/smart/imgsapp.em.com.br/app/noticia_127983242361/2023/06/29/1513945/refrigerante-em-copo-de-vidro_1_82231.jpg',desc:'Coca cola lata 350ml',sdesc:'lata 350ml',price:5.50,selled:10,extra:[extra[3]],typeId:type[1].id},
+            {name:'Porção de fritas',image:'https://latourangelle.com/cdn/shop/articles/hikynvl8pjkjqhvpnok6_1200x1200.jpg?v=1619198610',desc:'porção de fritas 500g',sdesc:'fritas 500g',price:25.50,selled:3,extra:[],typeId:type[2].id},
+            {name:'Sorvete',image:'https://static7.depositphotos.com/1156423/682/i/450/depositphotos_6823478-stock-photo-white-chocolate-cheesecake.jpg',desc:'sorvete de massa 5 bolas',sdesc:'5 bolas',price:25.00,selled:2,extra:[],typeId:type[3].id}
         ]
         const menu:any = []
         for (let i = 0; i < menus.length; i++) {
