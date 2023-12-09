@@ -15,6 +15,12 @@ export function handleApplicationErrors(
     });
   }
 
+  if (err.name === 'NotFoundError') {
+    return res.status(httpStatus.NOT_FOUND).send({
+      message: err.message,
+    });
+  }
+
   /* eslint-disable no-prototype-builtins */
   if (err.hasOwnProperty('status') && err.name === 'RequestError') {
     return res.status((err as RequestError).status).send({
